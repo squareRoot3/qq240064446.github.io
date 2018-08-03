@@ -101,9 +101,30 @@
 </li>
 </ul>
 <h4 id="按数据集的构建方法分类"><a href="#按数据集的构建方法分类" class="headerlink" title="按数据集的构建方法分类"></a>按数据集的构建方法分类</h4><ul>
-<li><p>爬取真实对话, 简单处理后, 加上混淆样例构建分类问题(1, 5)</p>
-<p>| context                                               | Response                                               | Flag |<br>| —————————————————– | —————————————————— | —- |<br>| well, can I move the drives? <strong>EOS</strong> ah not like that | I guess I could just get an enclosure and copy via USB | 1    |<br>| well, can I move the drives? <strong>EOS</strong> ah not like that | you can use “ps ax” and “kill (PID #)”                 | 0    |</p>
-</li>
+<li>爬取真实对话, 简单处理后, 加上混淆样例构建分类问题(1, 5)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>context</th>
+<th>Response</th>
+<th>Flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>well, can I move the drives? <strong>EOS</strong> ah not like that</td>
+<td>I guess I could just get an enclosure and copy via USB</td>
+<td>1</td>
+</tr>
+<tr>
+<td>well, can I move the drives? <strong>EOS</strong> ah not like that</td>
+<td>you can use “ps ax” and “kill (PID #)”</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li><p>利用pattern+slot-filling的方法构建数据集(2, 3)<br>“What movies did Michael J Fox star in?”<br>“What movies did [@actor] star in?”</p>
 </li>
 <li><p>对原始数据预处理之后, 人工标注特定的部分(6, 7)</p>
