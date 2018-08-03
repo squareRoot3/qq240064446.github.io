@@ -74,7 +74,7 @@
 </tbody>
 </table>
 <p>Test Set Generation:<br>作者随机选择了数据集的2%, 并加工成(context, response, flag)的三元组, 如果response是对的(即为context的next utterance) 那么flag就是1, 如果是错的flag就是0, 错误的response随机采样自测试集中的其他语句. 作者分别测试了2选1和10选1两种情况模型top K的准确率.</p>
-<h3 id="Online-Shoping-Domain"><a href="#Online-Shoping-Domain" class="headerlink" title="Online Shoping Domain"></a>Online Shoping Domain</h3><p><a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14261/13975" target="_blank" rel="noopener">Building Task-Oriented Dialogue Systems for Online Shopping</a><br>AAAI2017, 北航/MSRA</p>
+<h3 id="Online-Shoping-Domain"><a href="#Online-Shoping-Domain" class="headerlink" title="Online Shoping Domain"></a>Online Shoping Domain</h3><p><a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14261/13975" target="_blank" rel="noopener">Building Task-Oriented Dialogue Systems for Online Shopping</a><br>AAAI2017, 北航/MSRA/微软小冰<br>作者制作了一个聊天机器人, 并在网络上投入使用</p>
 <h3 id="Medical-Domain"><a href="#Medical-Domain" class="headerlink" title="Medical Domain"></a>Medical Domain</h3><p><a href="http://www.aclweb.org/anthology/P18-2033" target="_blank" rel="noopener">Task-oriented Dialogue System for Automatic Diagnosis</a><br>ACL2018, 复旦</p>
 <ul>
 <li>采用百度拇指医生中患者和医生之间的对话来制作数据集, 人工把数据集制作为指定格式(疾病/显示症状/隐式症状)</li>
@@ -104,15 +104,11 @@
 <li><p>爬取真实对话, 简单处理后, 加上混淆样例构建分类问题(1, 5)</p>
 <p>| context                                               | Response                                               | Flag |<br>| —————————————————– | —————————————————— | —- |<br>| well, can I move the drives? <strong>EOS</strong> ah not like that | I guess I could just get an enclosure and copy via USB | 1    |<br>| well, can I move the drives? <strong>EOS</strong> ah not like that | you can use “ps ax” and “kill (PID #)”                 | 0    |</p>
 </li>
-<li><p>利用pattern+slot-filling的方法构建数据集(2, 3)</p>
-<blockquote>
-<p>“What movies did Michael J Fox star in?”</p>
-<p>“What movies did [@actor] star in?”</p>
-</blockquote>
+<li><p>利用pattern+slot-filling的方法构建数据集(2, 3)<br>“What movies did Michael J Fox star in?”<br>“What movies did [@actor] star in?”</p>
 </li>
 <li><p>对原始数据预处理之后, 人工标注特定的部分(6, 7)</p>
 <p>6:  抽取百度知道上3百万个提问, 把提问分割成短语组成的向量后进行聚类, 让众包人员总结出所有的intent, 并把phrase用intent来label.</p>
-<p>| phrase          | intent         |<br>| ————— | ————– |<br>| which is better | compare        |<br>| how about       | ask opinion    |<br>| want to buy     | recommendation |</p>
+<p>| phrase          | intent         |<br>| -| -|<br>| which is better | compare        |<br>| how about       | ask opinion    |<br>| want to buy     | recommendation |</p>
 </li>
 <li><p>在众包平台采集真实对话(4)</p>
 <p>4: 设计了向导和游客两种身份, 向导需要根据游客的要求向游客推荐餐馆.</p>
